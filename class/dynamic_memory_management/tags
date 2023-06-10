@@ -1,0 +1,89 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+STRING_H_	String.h	2;"	d
+STRVEC_H_	strvec.h	2;"	d
+StrVec	strvec.cc	/^StrVec::StrVec(const StrVec &rhs) {$/;"	f	class:StrVec
+StrVec	strvec.h	/^    StrVec() : elements(nullptr), first_free(nullptr), cap(nullptr) {}$/;"	f	class:StrVec
+StrVec	strvec.h	/^class StrVec {$/;"	c
+String	String.cc	/^String::String(String &&rhs)$/;"	f	class:String
+String	String.cc	/^String::String(const String &rhs) {$/;"	f	class:String
+String	String.cc	/^String::String(const_iterator ci) {$/;"	f	class:String
+String	String.h	/^    String() : first_elem(nullptr), first_free(nullptr), cap(nullptr) {}$/;"	f	class:String
+String	String.h	/^class String {$/;"	c
+VECTOR_H_	Vector.h	2;"	d
+Vector	Vector.h	/^    Vector() : first_elem(nullptr), first_free(nullptr), cap(nullptr) {}$/;"	f	class:Vector
+Vector	Vector.h	/^    Vector(Vector &&rhs)$/;"	f	class:Vector
+Vector	Vector.h	/^    Vector(const Vector &rhs) {$/;"	f	class:Vector
+Vector	Vector.h	/^    Vector(std::initializer_list<T> il) {$/;"	f	class:Vector
+Vector	Vector.h	/^    explicit Vector(size_type n, const T &val = T()) {$/;"	f	class:Vector
+Vector	Vector.h	/^class Vector {$/;"	c
+alloc	String.cc	/^std::allocator<char> String::alloc;$/;"	m	class:String	file:
+alloc	String.h	/^    static std::allocator<char> alloc;$/;"	m	class:String
+alloc	Vector.h	/^    static std::allocator<T> alloc;$/;"	m	class:Vector
+alloc	Vector.h	/^std::allocator<T> alloc;$/;"	v
+alloc	strvec.cc	/^std::allocator<std::string> StrVec::alloc;$/;"	m	class:StrVec	file:
+alloc	strvec.h	/^    static std::allocator<std::string> alloc;$/;"	m	class:StrVec
+alloc_n_copy	strvec.cc	/^std::pair<std::string *, std::string *> StrVec::alloc_n_copy($/;"	f	class:StrVec
+begin	String.h	/^    const_iterator begin() const { return first_elem; }$/;"	f	class:String
+begin	String.h	/^    iterator begin() { return first_elem; }$/;"	f	class:String
+begin	Vector.h	/^    iterator begin() { return first_elem; }$/;"	f	class:Vector
+begin	strvec.h	/^    std::string *begin() const { return elements; }$/;"	f	class:StrVec
+cap	String.h	/^    iterator cap;$/;"	m	class:String
+cap	Vector.h	/^    iterator cap;$/;"	m	class:Vector
+cap	strvec.cc	/^    : elements(rhs.elements), first_free(rhs.first_free), cap(rhs.cap) {$/;"	f
+cap	strvec.h	/^    std::string *cap;$/;"	m	class:StrVec
+capacity	String.h	/^    size_type capacity() const { return cap - first_elem; }$/;"	f	class:String
+capacity	Vector.h	/^    size_type capacity() const { return cap - first_elem; }$/;"	f	class:Vector
+capacity	strvec.h	/^    size_t capacity() const { return cap - elements; }$/;"	f	class:StrVec
+cbegin	String.h	/^    const_iterator cbegin() const { return begin(); }$/;"	f	class:String
+cend	String.h	/^    const_iterator cend() const { return end(); }$/;"	f	class:String
+chk_n_alloc	strvec.h	/^    void chk_n_alloc() {$/;"	f	class:StrVec
+const_iterator	String.h	/^    typedef const char *const_iterator;$/;"	t	class:String
+const_reference	String.h	/^    typedef const char &const_reference;$/;"	t	class:String
+elements	strvec.h	/^    std::string *elements;$/;"	m	class:StrVec
+empty	String.h	/^    bool empty() const { return cbegin() == cend(); }$/;"	f	class:String
+empty	Vector.h	/^    bool empty() const { return begin() == end(); }$/;"	f	class:Vector
+end	String.h	/^    const_iterator end() const { return first_free; }$/;"	f	class:String
+end	String.h	/^    iterator end() { return first_free; }$/;"	f	class:String
+end	Vector.h	/^    iterator end() { return first_free; }$/;"	f	class:Vector
+end	strvec.h	/^    std::string *end() const { return first_free; }$/;"	f	class:StrVec
+first_elem	String.h	/^    iterator first_elem;$/;"	m	class:String
+first_elem	Vector.h	/^    iterator first_elem;$/;"	m	class:Vector
+first_free	String.h	/^    iterator first_free;$/;"	m	class:String
+first_free	Vector.h	/^    iterator first_free;$/;"	m	class:Vector
+first_free	strvec.h	/^    std::string *first_free;$/;"	m	class:StrVec
+free	String.cc	/^void String::free() {$/;"	f	class:String
+free	Vector.h	/^    void free() {$/;"	f	class:Vector
+free	strvec.cc	/^void StrVec::free() {$/;"	f	class:StrVec
+iterator	String.h	/^    typedef char *iterator;$/;"	t	class:String
+noexcept	strvec.h	/^    StrVec &operator=(StrVec &&) noexcept;$/;"	m	class:StrVec
+noexcept	strvec.h	/^    StrVec(StrVec &&) noexcept;$/;"	m	class:StrVec
+operator <<	String.cc	/^std::ostream &operator<<(std::ostream &os, const String &s) {$/;"	f
+operator =	String.cc	/^String &String::operator=(String &&rhs) {$/;"	f	class:String
+operator =	String.cc	/^String &String::operator=(const String &rhs) {$/;"	f	class:String
+operator =	Vector.h	/^    Vector &operator=(Vector &&rhs) {}$/;"	f	class:Vector
+operator =	Vector.h	/^    Vector &operator=(const Vector &rhs) {}$/;"	f	class:Vector
+operator =	strvec.cc	/^StrVec &StrVec::operator=(const StrVec &rhs) {$/;"	f	class:StrVec
+operator []	String.h	/^    const_reference &operator[](size_type n) const { return first_elem[n]; }$/;"	f	class:String
+operator []	String.h	/^    reference &operator[](size_type n) { return first_elem[n]; }$/;"	f	class:String
+operator []	Vector.h	/^    reference operator[](size_type n) { return first_elem[n]; }$/;"	f	class:Vector
+pop_back	String.cc	/^void String::pop_back() {$/;"	f	class:String
+pop_back	Vector.h	/^    void pop_back() {}$/;"	f	class:Vector
+push_back	String.cc	/^void String::push_back(const_reference cr) {$/;"	f	class:String
+push_back	Vector.h	/^    void push_back(const T &val) {}$/;"	f	class:Vector
+push_back	strvec.cc	/^void StrVec::push_back(const std::string &s) {$/;"	f	class:StrVec
+reallocate	String.cc	/^void String::reallocate(size_type n) {$/;"	f	class:String
+reallocate	strvec.cc	/^void StrVec::reallocate() {$/;"	f	class:StrVec
+reference	String.h	/^    typedef char &reference;$/;"	t	class:String
+size	String.h	/^    size_type size() const { return first_free - first_elem; }$/;"	f	class:String
+size	Vector.h	/^    size_type size() const { return first_free - first_elem; }$/;"	f	class:Vector
+size	strvec.h	/^    size_t size() const { return first_free - elements; }$/;"	f	class:StrVec
+size_type	String.h	/^    typedef size_t size_type;$/;"	t	class:String
+str	String.h	/^    std::string str() const { return std::string(cbegin(), cend()); }$/;"	f	class:String
+~StrVec	strvec.cc	/^StrVec::~StrVec() { free(); }$/;"	f	class:StrVec
+~String	String.cc	/^String::~String() { free(); }$/;"	f	class:String
+~Vector	Vector.h	/^    ~Vector() { free(); }$/;"	f	class:Vector
