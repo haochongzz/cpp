@@ -18,4 +18,22 @@ void Foo<T>::bar(const U &x) {  // argument deduction
     // ...
 }
 
+namespace specialization {
 
+// specialization of member templates
+class Foo {
+    template <typename T>
+    class Bar;
+
+    template <typename T>  // OK: partial specialization
+    class Bar<T *> {};
+
+    template <>
+    class Bar<int> {};  // OK: full specialization
+};
+
+}  // namespace specialization
+
+// a member function template cannot be virtual, and a member function template
+// in a derived class cannot override a virtual member function from the base
+// class.
