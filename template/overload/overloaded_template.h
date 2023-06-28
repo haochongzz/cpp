@@ -1,3 +1,7 @@
+// Function templates can be overloaded by other templates or by ordinary,
+// nontemplate functions. As usual, functions with the same name must differ
+// either as to the number or the type(s) of their parameters.
+//
 // Function matching (§ 6.4, p. 233) is affected by the presence of function
 // templates in the following ways:
 //
