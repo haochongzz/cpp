@@ -1,4 +1,7 @@
+#include <functional>
+
 // returning a pointer to function
+
 int func(int *, int);
 
 // use type alias
@@ -18,3 +21,8 @@ auto f2(int) -> int (*)[10];  // returns a pointer to array
 
 // use decltype. decltype returns a function type! need to add *.
 decltype(func) *f1(int);
+
+auto cast = [](void *data) {
+    static_cast<> 
+}
+std::function<void()> = []() {};
