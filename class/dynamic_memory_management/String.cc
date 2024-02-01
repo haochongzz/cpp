@@ -35,6 +35,7 @@ String &String::operator=(String &&rhs) {
         cap = rhs.cap;
         rhs.first_elem = rhs.first_free = rhs.cap = nullptr;
     }
+    return *this;
 }
 
 String::~String() { free(); }
