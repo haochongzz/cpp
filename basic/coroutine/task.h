@@ -30,14 +30,10 @@ class [[nodiscard]] Task {
   Task(Task &&task);
 
   // Resume execution of the suspended coroutine.
-  void resume() const {
-    _handle->resume();
-  }
+  void resume() const { _handle->resume(); }
 
-  // Check if the suspended coroutine is at final suspend point. 
-  bool done() const {
-    _handle->done();
-  }
+  // Check if the suspended coroutine is at final suspend point.
+  bool done() const { _handle->done(); }
 
  private:
   std::coroutine_handle<> handle() { return *_handle; }
@@ -68,12 +64,10 @@ struct TaskAwaiter {
 
 struct YieldAwaiter {
   bool await_ready() noexcept { return false; }
-  void await_suspend(std::coroutine_handle<> h) noexcept {
-    _awaiting.promise().set_awaiting(h);
-  }
+  void await_suspend(std::coroutine_handle<> h) noexcept { *_resumer = h; }
   void await_resume() noexcept {}
 
-  std::coroutine_handle<> _awaiting;
+  std::coroutine_handle<> *_resumer;
 };
 
 struct BasePromise {
@@ -85,6 +79,8 @@ struct BasePromise {
 
   void set_awaiting(std::coroutine_handle<> h) { _awaiting = h; }
 
+  void set_resumer(std::coroutine_handle<> h) { _resumer = &h; }
+
   // operand of co_await.
   template <typename T>
   TaskAwaiter<T> await_transform(Task<T> &&awaited) {
@@ -93,12 +89,11 @@ struct BasePromise {
 
   // operand of co_yield.
   struct yield_type {};
-  YieldAwaiter yield_value(yield_type) {
-    return YieldAwaiter{_awaiting};
-  }
+  YieldAwaiter yield_value(yield_type) { return YieldAwaiter{_resumer}; }
 
  private:
   std::coroutine_handle<> _awaiting;
+  std::coroutine_handle<> *_resumer;
 };
 
 // specialization.
@@ -136,7 +131,8 @@ struct Promise : public BasePromise {
 /******************************************************************************/
 /* Implementations.                                                           */
 /******************************************************************************/
-// implementation of Task. 
+
+// implementation of Task.
 template <typename T>
 Task<T>::Task(promise_type *p)
     : _handle(new std::coroutine_handle<>(
@@ -162,7 +158,6 @@ template <typename T>
 T TaskAwaiter<T>::await_resume() noexcept {
   return _awaited.promise().get_value();
 }
-
 
 }  // namespace task
 
